@@ -10,7 +10,7 @@ OMSCS 课程的中文逐页学习笔记，按课程、课件和 PDF 页码组织
 | --- | --- | --- |
 | Deep Learning | Lesson 1: Linear Classifiers and Gradient Descent | 入口已建立，逐页笔记待整理 |
 | Deep Learning | Lesson 2: Neural Networks and Backpropagation | 52 页完整笔记 |
-| Deep Learning | Lesson 3: Optimization of Deep Networks | 第 1–69 页完整，第 70–84 页待讲 |
+| Deep Learning | Lesson 3: Optimization of Deep Networks | 第 1–72 页完整，第 73–84 页待讲 |
 | Human-Computer Interaction | HCI | 课程占位入口，暂不收录讲义 |
 
 每页包含课件原意的简要转述、通俗讲解、相关公式和核心知识点。站点支持页码定位、中文和英文搜索、前后翻页及手机阅读。
@@ -22,6 +22,11 @@ OMSCS 课程的中文逐页学习笔记，按课程、课件和 PDF 页码组织
 - [Adaptive Gradient Methods with Dynamic Bound of Learning Rate](https://arxiv.org/abs/1902.09843)：课件引用的优化器表现研究，不应把特定实验结果当作普遍排名。
 - [Decoupled Weight Decay Regularization](https://arxiv.org/abs/1711.05101)：普通 SGD 中 L2 与权重衰减的联系，以及自适应优化器中的区别。
 - [Dropout 原始论文](https://jmlr.org/papers/v15/srivastava14a.html)与 [PyTorch Dropout 文档](https://docs.pytorch.org/docs/stable/generated/torch.nn.Dropout.html)：随机屏蔽、共同适应、保留概率和丢弃概率，以及训练与推理的尺度处理。
+
+后续逐页笔记的补充对照资料：
+
+- [CutMix 原始论文](https://arxiv.org/abs/1905.04899)：双图区域替换及面积加权标签，不等同于普通单图裁剪。
+- [Milking CowMask for Semi-Supervised Image Classification](https://arxiv.org/abs/2003.12022)：CowMask、CowMix 与半监督预测一致性；教师／学生细节明确标为论文补充。
 
 ## 本地预览
 
