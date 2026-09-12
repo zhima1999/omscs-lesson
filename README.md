@@ -10,7 +10,7 @@ OMSCS 课程的中文逐页学习笔记，按课程、课件和 PDF 页码组织
 | --- | --- | --- |
 | Deep Learning | Lesson 1: Linear Classifiers and Gradient Descent | 入口已建立，逐页笔记待整理 |
 | Deep Learning | Lesson 2: Neural Networks and Backpropagation | 52 页完整笔记 |
-| Deep Learning | Lesson 3: Optimization of Deep Networks | 第 1–63 页完整，第 64–84 页待讲 |
+| Deep Learning | Lesson 3: Optimization of Deep Networks | 第 1–66 页完整，第 67–84 页待讲 |
 | Human-Computer Interaction | HCI | 课程占位入口，暂不收录讲义 |
 
 每页包含课件原意的简要转述、通俗讲解、相关公式和核心知识点。站点支持页码定位、中文和英文搜索、前后翻页及手机阅读。

@@ -1,4 +1,5 @@
 import { batchPages as batch61to63 } from "./lesson-3/batch-61-63.js";
+import { batchPages as batch64to66 } from "./lesson-3/batch-64-66.js";
 
 function taught(page, title, sourcePoints, explanation, takeaway, formulas = []) {
   return {
@@ -755,7 +756,7 @@ const pendingTitles = [
   "Resources"
 ];
 
-const completedBatches = [...batch61to63];
+const completedBatches = [...batch61to63, ...batch64to66];
 const allTaughtPages = [...taughtPages, ...completedBatches];
 
 export const lesson3Pages = [
