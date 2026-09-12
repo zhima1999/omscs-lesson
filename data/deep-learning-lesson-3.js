@@ -6,6 +6,7 @@ import { batchPages as batch73to75 } from "./lesson-3/batch-73-75.js";
 import { batchPages as batch76to78 } from "./lesson-3/batch-76-78.js";
 import { batchPages as batch79to81 } from "./lesson-3/batch-79-81.js";
 import { batchPages as batch82to84 } from "./lesson-3/batch-82-84.js";
+import { conversationNotes } from "./lesson-3/conversation-01-54.js";
 
 function taught(page, title, sourcePoints, explanation, takeaway, formulas = []) {
   return {
@@ -779,5 +780,6 @@ export const lesson3Pages = [
   ...pendingTitles.slice(completedBatches.length).map((title, index) => pending(allTaughtPages.length + index + 1, title))
 ].map((note) => ({
   ...note,
+  ...conversationNotes[note.page],
   slideImage: `assets/slides/lesson-3/page-${String(note.page).padStart(2, "0")}.jpg`
 }));

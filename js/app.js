@@ -327,7 +327,9 @@ function taughtNote(note) {
 
       <section class="explanation-block" aria-labelledby="explanation-title-${note.page}">
         <div class="content-label">${icon("message-square-text", 18)}<h2 id="explanation-title-${note.page}">通俗讲解</h2></div>
-        ${note.explanation.map((paragraph) => `<p>${escapeHTML(paragraph)}</p>`).join("")}
+        ${note.explanationHtml
+          ? `<div class="conversation-note">${note.explanationHtml}</div>`
+          : note.explanation.map((paragraph) => `<p>${escapeHTML(paragraph)}</p>`).join("")}
       </section>
 
       ${note.formulas.length ? `
