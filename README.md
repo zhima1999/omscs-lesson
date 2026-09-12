@@ -10,12 +10,18 @@ OMSCS 课程的中文逐页学习笔记，按课程、课件和 PDF 页码组织
 | --- | --- | --- |
 | Deep Learning | Lesson 1: Linear Classifiers and Gradient Descent | 入口已建立，逐页笔记待整理 |
 | Deep Learning | Lesson 2: Neural Networks and Backpropagation | 52 页完整笔记 |
-| Deep Learning | Lesson 3: Optimization of Deep Networks | 第 1–54 页完整，第 55–84 页待讲 |
+| Deep Learning | Lesson 3: Optimization of Deep Networks | 第 1–60 页完整，第 61–84 页待讲 |
 | Human-Computer Interaction | HCI | 课程占位入口，暂不收录讲义 |
 
 每页包含课件原意的简要转述、通俗讲解、相关公式和核心知识点。站点支持页码定位、中文和英文搜索、前后翻页及手机阅读。
 
 本仓库是个人自学笔记，不是 Georgia Tech 官方课程网站。原始教材和课件 PDF 不随站点发布，页面中的课件内容只用于定位和简要对照。
+
+第 3 课第 55–60 页的补充说明对照了以下原始研究与官方资料：
+
+- [Adaptive Gradient Methods with Dynamic Bound of Learning Rate](https://arxiv.org/abs/1902.09843)：课件引用的优化器表现研究，不应把特定实验结果当作普遍排名。
+- [Decoupled Weight Decay Regularization](https://arxiv.org/abs/1711.05101)：普通 SGD 中 L2 与权重衰减的联系，以及自适应优化器中的区别。
+- [Dropout 原始论文](https://jmlr.org/papers/v15/srivastava14a.html)与 [PyTorch Dropout 文档](https://docs.pytorch.org/docs/stable/generated/torch.nn.Dropout.html)：随机屏蔽、共同适应、保留概率和丢弃概率，以及训练与推理的尺度处理。
 
 ## 本地预览
 

@@ -37,13 +37,41 @@ test("lesson 2 contains 52 complete taught notes", () => {
   }
 });
 
-test("lesson 3 contains 54 taught pages followed by 30 pending pages", () => {
+test("lesson 3 contains 60 taught pages followed by 24 pending pages", () => {
   assertSequentialPages(lesson3Pages, 84);
-  for (const note of lesson3Pages.slice(0, 54)) {
+  for (const note of lesson3Pages.slice(0, 60)) {
     assert.equal(note.status, "taught");
     assertCompleteNote(note);
   }
-  for (const note of lesson3Pages.slice(54)) {
+  for (const note of lesson3Pages.slice(60)) {
     assert.equal(note.status, "pending");
+  }
+});
+
+test("lesson 3 pages 55-60 match the source slides and provide detailed explanations", () => {
+  const titles = [
+    "Behavior of Optimizers",
+    "Learning Rate Schedules",
+    "Regularization",
+    "Regularization: L1, L2, and Elastic",
+    "Preventing Co-Adapted Features",
+    "Dropout Regularization"
+  ];
+  const notes = lesson3Pages.slice(54, 60);
+  assert.deepEqual(notes.map((note) => note.title), titles);
+  for (const note of notes) {
+    assert.ok(note.explanation.length >= 6, `page ${note.page} needs step-by-step explanations`);
+    assert.ok(note.explanation.join("").length >= 600, `page ${note.page} needs beginner-friendly detail`);
+    assert.ok(!JSON.stringify(note).includes("\u03a3"));
+    assert.ok(!JSON.stringify(note).includes("\u2211"));
+  }
+});
+
+test("course progress matches the actual number of available lesson notes", () => {
+  const lessons = courses[0].lessons;
+  for (const [id, pages] of [["2", lesson2Pages], ["3", lesson3Pages]]) {
+    const lesson = lessons.find((item) => item.id === id);
+    assert.equal(lesson.taughtPages, pages.filter((note) => note.status === "taught").length);
+    assert.equal(lesson.totalPages, pages.length);
   }
 });
