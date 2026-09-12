@@ -38,15 +38,13 @@ test("lesson 2 contains 52 complete taught notes", () => {
   }
 });
 
-test("lesson 3 contains 81 taught pages followed by 3 pending pages", () => {
+test("lesson 3 contains 84 complete taught pages", () => {
   assertSequentialPages(lesson3Pages, 84);
-  for (const note of lesson3Pages.slice(0, 81)) {
+  for (const note of lesson3Pages) {
     assert.equal(note.status, "taught");
     assertCompleteNote(note);
   }
-  for (const note of lesson3Pages.slice(81)) {
-    assert.equal(note.status, "pending");
-  }
+  assert.equal(courses[0].lessons.find((lesson) => lesson.id === "3").status, "complete");
 });
 
 test("lesson 3 pages 55-60 match the source slides and provide detailed explanations", () => {
@@ -84,6 +82,15 @@ test("new lesson 3 notes retain detailed beginner explanations without summation
     assert.ok(!JSON.stringify(note).includes("\u03a3"));
     assert.ok(!JSON.stringify(note).includes("\u2211"));
   }
+});
+
+test("ROC and PR notes explicitly correct the slide's mixed-up definitions", () => {
+  const roc = lesson3Pages[81];
+  const pr = lesson3Pages[82];
+  assert.match(roc.explanation.join(""), /横轴是 FPR、纵轴是 TPR/);
+  assert.ok(roc.formulas.includes("TPR = Recall = TP / (TP + FN)"));
+  assert.ok(pr.formulas.includes("Precision = TP / (TP + FP); Recall = TP / (TP + FN)"));
+  assert.match(pr.explanation.join(""), /精确率不保证严格单调下降/);
 });
 
 test("every lesson 3 page has its corresponding rendered slide screenshot", async () => {

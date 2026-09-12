@@ -10,7 +10,7 @@ OMSCS 课程的中文逐页学习笔记，按课程、课件和 PDF 页码组织
 | --- | --- | --- |
 | Deep Learning | Lesson 1: Linear Classifiers and Gradient Descent | 入口已建立，逐页笔记待整理 |
 | Deep Learning | Lesson 2: Neural Networks and Backpropagation | 52 页完整笔记 |
-| Deep Learning | Lesson 3: Optimization of Deep Networks | 第 1–81 页完整，第 82–84 页待讲 |
+| Deep Learning | Lesson 3: Optimization of Deep Networks | 84 页完整笔记，每页含对应课件截图 |
 | Human-Computer Interaction | HCI | 课程占位入口，暂不收录讲义 |
 
 每页包含课件原意的简要转述、通俗讲解、相关公式和核心知识点。站点支持页码定位、中文和英文搜索、前后翻页及手机阅读。
@@ -29,6 +29,9 @@ OMSCS 课程的中文逐页学习笔记，按课程、课件和 PDF 页码组织
 - [Milking CowMask for Semi-Supervised Image Classification](https://arxiv.org/abs/2003.12022)：CowMask、CowMix 与半监督预测一致性；教师／学生细节明确标为论文补充。
 - [PyTorch 异常检测文档](https://docs.pytorch.org/docs/stable/autograd.html#torch.autograd.detect_anomaly)：反向传播 NaN 诊断及前向调用线索，不能当作所有数据问题的自动修复工具。
 - [Random Search for Hyper-Parameter Optimization](https://jmlr.org/papers/v13/bergstra12a.html)：重要超参数与搜索预算的关系，随机搜索不是无条件优于网格的保证。
+- [ROC 官方示例](https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html)与 [Precision–Recall 官方示例](https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html)：澄清第 82–83 页的曲线名称混淆，以及精确率、召回率和阈值关系。
+- [Average Precision 文档](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)：平均精确率与 PR 折线梯形面积并不完全相同。
+- [Leslie N. Smith 的超参数论文](https://arxiv.org/abs/1803.09820)：第 84 页列出的原始参考资源。
 
 ## 本地预览
 
@@ -45,7 +48,7 @@ npm run serve
 
 - `data/courses.js`：课程及课件目录。
 - `data/deep-learning-lesson-2.js`：第 2 课逐页笔记。
-- `data/deep-learning-lesson-3.js`：第 3 课逐页笔记与待讲页。
+- `data/deep-learning-lesson-3.js`：第 3 课 84 页笔记及对应截图索引。
 - `data/lesson-3/`：第 3 课后续笔记，按每批 3 页发布。
 - `assets/slides/lesson-3/`：第 3 课 84 页对应截图。
 - `js/app.js`：课程页和阅读页。

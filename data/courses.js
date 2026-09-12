@@ -35,8 +35,8 @@ export const courses = [
         titleZh: "深度网络的优化",
         source: "M1L3 Optimization of Deep Networks - Slides v4.pdf",
         totalPages: 84,
-        taughtPages: 81,
-        status: "in-progress"
+        taughtPages: 84,
+        status: "complete"
       }
     ]
   },
