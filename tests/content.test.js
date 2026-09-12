@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 
 import { courses } from "../data/courses.js";
 import { lesson2Pages } from "../data/deep-learning-lesson-2.js";
@@ -37,13 +38,13 @@ test("lesson 2 contains 52 complete taught notes", () => {
   }
 });
 
-test("lesson 3 contains 60 taught pages followed by 24 pending pages", () => {
+test("lesson 3 contains 63 taught pages followed by 21 pending pages", () => {
   assertSequentialPages(lesson3Pages, 84);
-  for (const note of lesson3Pages.slice(0, 60)) {
+  for (const note of lesson3Pages.slice(0, 63)) {
     assert.equal(note.status, "taught");
     assertCompleteNote(note);
   }
-  for (const note of lesson3Pages.slice(60)) {
+  for (const note of lesson3Pages.slice(63)) {
     assert.equal(note.status, "pending");
   }
 });
@@ -73,5 +74,24 @@ test("course progress matches the actual number of available lesson notes", () =
     const lesson = lessons.find((item) => item.id === id);
     assert.equal(lesson.taughtPages, pages.filter((note) => note.status === "taught").length);
     assert.equal(lesson.totalPages, pages.length);
+  }
+});
+
+test("new lesson 3 notes retain detailed beginner explanations without summation notation", () => {
+  for (const note of lesson3Pages.slice(60).filter((note) => note.status === "taught")) {
+    assert.ok(note.explanation.length >= 6, `page ${note.page} needs step-by-step explanations`);
+    assert.ok(note.explanation.join("").length >= 600, `page ${note.page} needs beginner-friendly detail`);
+    assert.ok(!JSON.stringify(note).includes("\u03a3"));
+    assert.ok(!JSON.stringify(note).includes("\u2211"));
+  }
+});
+
+test("every lesson 3 page has its corresponding rendered slide screenshot", async () => {
+  for (const note of lesson3Pages) {
+    assert.equal(note.slideImage, `assets/slides/lesson-3/page-${String(note.page).padStart(2, "0")}.jpg`);
+    const bytes = await readFile(new URL(`../${note.slideImage}`, import.meta.url));
+    assert.equal(bytes[0], 0xff);
+    assert.equal(bytes[1], 0xd8);
+    assert.ok(bytes.length > 10000);
   }
 });

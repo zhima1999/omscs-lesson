@@ -267,6 +267,19 @@ function renderIndexResults(course, lesson, pages, selectedPage, query) {
   refreshIcons();
 }
 
+function slideScreenshot(note) {
+  if (!note.slideImage) return "";
+  return `
+    <figure class="slide-screenshot">
+      <a href="${escapeHTML(note.slideImage)}" target="_blank" rel="noreferrer" aria-label="查看 PDF 第 ${note.page} 页完整截图">
+        <img src="${escapeHTML(note.slideImage)}" alt="${escapeHTML(note.title)}，PDF 第 ${note.page} 页原始课件"
+          width="1600" height="900" decoding="async">
+      </a>
+      <figcaption>PPT · PDF 第 ${note.page} 页</figcaption>
+    </figure>
+  `;
+}
+
 function pendingNote(note, lastTaughtPage) {
   return `
     <article class="note-card pending-note">
@@ -277,6 +290,7 @@ function pendingNote(note, lastTaughtPage) {
         </div>
         <span class="note-status pending">待讲</span>
       </div>
+      ${slideScreenshot(note)}
       <div class="pending-message">
         <span>${icon("clock-3", 26)}</span>
         <div>
@@ -298,6 +312,8 @@ function taughtNote(note) {
         </div>
         <span class="note-status taught">已讲解</span>
       </div>
+
+      ${slideScreenshot(note)}
 
       <details class="source-panel" open>
         <summary>

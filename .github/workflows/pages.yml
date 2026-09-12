@@ -34,6 +34,7 @@ jobs:
           mkdir -p _site
           cp index.html styles.css _site/
           cp -R js data vendor _site/
+          cp -R assets _site/
           touch _site/.nojekyll
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4

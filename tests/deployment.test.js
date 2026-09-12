@@ -13,5 +13,6 @@ test("Pages workflow tests notes and publishes only site assets", async () => {
   assert.match(workflow, /id-token: write/);
   assert.match(workflow, /path: _site/);
   assert.match(workflow, /cp -R js data vendor _site/);
+  assert.match(workflow, /cp -R assets _site/);
   assert.match(workflow, /actions\/deploy-pages@v4/);
 });

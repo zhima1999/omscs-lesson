@@ -46,3 +46,17 @@ test("mobile reader provides a compact expandable page index", async () => {
   assert.match(app, /aria-expanded="false"/);
   assert.match(css, /\.page-index\.is-collapsed/);
 });
+
+test("slide screenshots appear above the PPT summary and support full-size viewing", async () => {
+  const app = await read("js/app.js");
+  const css = await read("styles.css");
+  assert.match(app, /function slideScreenshot\(note\)/);
+  const taughtStart = app.indexOf("function taughtNote(note)");
+  const screenshot = app.indexOf("${slideScreenshot(note)}", taughtStart);
+  const summary = app.indexOf('class="source-panel"', taughtStart);
+  assert.ok(screenshot > taughtStart && screenshot < summary);
+  assert.match(app, /note\.slideImage/);
+  assert.match(app, /class="slide-screenshot"/);
+  assert.match(app, /decoding="async"/);
+  assert.match(css, /\.slide-screenshot img/);
+});

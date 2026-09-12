@@ -243,6 +243,10 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: 0; }
 .page-kicker { margin-bottom: 9px; color: var(--green); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.7rem; font-weight: 750; letter-spacing: 0; }
 .note-heading h1 { max-width: 720px; margin-bottom: 0; overflow-wrap: anywhere; font-family: Georgia, "Times New Roman", "Songti SC", serif; font-size: 1.9rem; }
 .note-status { flex: 0 0 auto; }
+.slide-screenshot { margin: 0; border-bottom: 1px solid var(--line); }
+.slide-screenshot a { display: block; }
+.slide-screenshot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #fff; }
+.slide-screenshot figcaption { padding: 9px 20px; color: var(--muted); font-size: 0.76rem; }
 .source-panel { border-bottom: 1px solid var(--line); background: #f8faf8; }
 .source-panel summary { min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 34px; cursor: pointer; list-style: none; color: #39443e; font-size: 0.86rem; font-weight: 750; }
 .source-panel summary::-webkit-details-marker { display: none; }
