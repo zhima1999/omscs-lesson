@@ -38,13 +38,13 @@ test("lesson 2 contains 52 complete taught notes", () => {
   }
 });
 
-test("lesson 3 contains 66 taught pages followed by 18 pending pages", () => {
+test("lesson 3 contains 69 taught pages followed by 15 pending pages", () => {
   assertSequentialPages(lesson3Pages, 84);
-  for (const note of lesson3Pages.slice(0, 66)) {
+  for (const note of lesson3Pages.slice(0, 69)) {
     assert.equal(note.status, "taught");
     assertCompleteNote(note);
   }
-  for (const note of lesson3Pages.slice(66)) {
+  for (const note of lesson3Pages.slice(69)) {
     assert.equal(note.status, "pending");
   }
 });
